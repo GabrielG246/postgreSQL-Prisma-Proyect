@@ -4,9 +4,9 @@ import express from 'express';
 const router= express.Router();
 
 //Rutas
-router.post('/cart', agregarAlCarrito);
-router.patch('/cart/:cartItemId', actualizarCantidad);
-router.delete('/')
+router.post('/add', agregarAlCarrito);
+router.patch('/:cartItemId', actualizarCantidad);
+router.delete('/:cartItemId', eliminarDelCarrito);
+router.get('/?id', obtenerCarrito);
 
-
-
+export default router

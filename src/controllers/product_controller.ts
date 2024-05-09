@@ -54,6 +54,8 @@ export const obtenerCarrito= async(req:Request, res:Response): Promise<void> =>{
     const queryId= req.query;
     const userId= Number(queryId);
 
+    
+
     const cartItems = await prisma.cartItem.findMany({
         where: {userId},
     })
