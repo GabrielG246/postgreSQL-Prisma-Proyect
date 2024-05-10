@@ -1,11 +1,8 @@
-import bcrypt from 'bcrypt';
+import { IJWT } from "../models/controller_interfaces";
+import jwt from "jsonwebtoken";
 
-const SALT_ROUND: number = 10;
+const JWT_SECRET= process.env.JWT_SECRET || "defaultSecretJWT";
 
-export const hashPassword = async(pass:string): Promise<string> =>{
-    return await bcrypt.hash(pass, SALT_ROUND);
-}
-
-export const comparePassword= async(pass: string, hash: string): Promise<boolean> =>{
-    return await  bcrypt.compare(pass, hash);    
+export const generateToken= (user: IJWT): string =>{
+    return jwt.sign({id: user.id, email: user.email}, JWT_SECRET, {expiresIn: "1h"})
 }

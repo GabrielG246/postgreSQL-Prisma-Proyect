@@ -6,6 +6,12 @@ export interface IUser{
     password: String;
 }
 
+export interface IJWT{
+    id?: Number;
+    email: String;
+    password: String;
+}
+
 export interface ICartItem{
     id?: Number;
     quantity: Number;
